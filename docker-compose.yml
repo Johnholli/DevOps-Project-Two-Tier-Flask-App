@@ -1,38 +1,37 @@
 version: "3.8"
 
 services:
-mysql:
-image: mysql:5.7
-environment:
-MYSQL_ROOT_PASSWORD: root
-MYSQL_DATABASE: testdb
-volumes:
-- mysql_data:/var/lib/mysql
-networks:
-- two-tier-nt
-restart: always
-healthcheck:
-test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot","-proot"]
-interval: 10s
-timeout: 5s
-retries: 5
-start_period: 60s
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - two-tier-nt
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
 
-
-flask-app:
-build: .
-ports:
-- "5000:5000"
-networks:
-- two-tier-nt    
-depends_on: 
-- mysql
-condition: service_healthy
-restart: always
-
+  flask-app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - two-tier-nt
+    restart: always
 
 volumes:
-mysql_data:
+  mysql_data:
 
 networks:
-two-tier-nt:
+  two-tier-nt:
+
