@@ -284,17 +284,22 @@ Configure the Pipeline:
 Run the Pipeline:
 - Click Build Now to trigger the pipeline manually for the first time.
 - Monitor the execution through the Stage View or Console Output.
+  
+<img width="1440" height="796" alt="jenkins console output fail" src="https://github.com/user-attachments/assets/0cca71eb-e2d4-4bb8-b54a-5d2d073b1e11" />
 
 
+<img width="1440" height="796" alt="jenkins console output pass" src="https://github.com/user-attachments/assets/0665ef7c-1ed1-4643-a626-0b8027b82658" />
 
 Verify Deployment:
 - After a successful build, your Flask application will be accessible at http://<your-ec2-public-ip>:5000.
 - Confirm the containers are running on the EC2 instance with docker ps.
 
 **Conclusion**
+
 The CI/CD pipeline is now fully operational. Any git push to the main branch of the configured GitHub repository will automatically trigger the Jenkins pipeline, which will build the new Docker image and deploy the updated application, ensuring a seamless and automated workflow from development to production.
 
 **🧠 Lessons Learned**
+
 1. CI/CD Pipelines Fail Before Code Runs
 Many failures occurred before application code executed, including Git branch mismatches, Jenkins SCM configuration issues, and redundant repository checkouts.
 2. Idempotency Is Critical
@@ -310,6 +315,7 @@ All issues were resolved by analyzing Jenkins logs, Docker output, and error mes
 
 
 **🔮 Future Improvements**
+
 - Push Docker images to Docker Hub or AWS ECR
 - Replace MySQL container with AWS RDS
 - Add automated testing stage to the pipeline
