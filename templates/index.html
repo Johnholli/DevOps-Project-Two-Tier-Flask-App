@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashant | Flask App 🚀</title>
+    <title>John Hollingsworth | Cloud & DevOps 🚀</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -163,23 +163,32 @@
     <div class="container">
         <!-- Profile photo -->
         <div class="profile-photo">
-            <img src="1.png" alt="Prashant Photo">
+            <img src="{{ url_for('static', filename='1.png') }}" alt="Profile Photo">
+
         </div>
 
         <!-- Content -->
         <div class="content">
             <div class="header">
-                <h1>Prashant Gohil | DevOps Enthusiast</h1>
-                <p>Student | Aspiring Cloud & DevOps Engineer</p>
-            </div>
+                <h1><h1>John Hollingsworth | Cloud & DevOps Engineer</h1>
+<p>AWS • Docker • Jenkins • CI/CD • Cloud Automation</p>
 
-            <div class="about">
-                <h2>About Me</h2>
-                <p>Hi, I'm <b>Prashant</b> 👋, a student and aspiring Cloud & DevOps engineer.</p>
-                <p style="margin-top:10px;">
-                    <b>Project:</b> I have deployed a 2-tier Flask application (Flask + MySQL) on AWS EC2 using Docker.  
-                    I used Docker Compose to manage both containers with volumes and a custom network.  
-                    The source code is hosted on GitHub, and Jenkins is integrated to set up a CI/CD pipeline for automated deployment.
+<div class="about">
+    <h2>About Me</h2>
+    <p>
+        Hi, I’m <b>John Hollingsworth</b> 👋 — a Cloud & DevOps engineer focused on designing,
+        deploying, and automating cloud-native applications.
+    </p>
+    <p style="margin-top:10px;">
+        <b>Core Skills Demonstrated:</b> This project showcases hands-on experience
+        with AWS infrastructure, containerization using Docker, multi-service
+        orchestration with Docker Compose, and automated CI/CD pipelines using Jenkins.
+        The application follows a 2-tier architecture with Flask and MySQL, includes
+        persistent storage, and is deployed on AWS EC2 with repeatable, automated
+        deployments triggered by GitHub commits.
+    </p>
+</div>
+
                 </p>
             </div>
 
