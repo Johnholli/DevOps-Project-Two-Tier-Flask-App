@@ -1,19 +1,23 @@
-pipeline{
+pipeline {
     agent any
-    
+
     stages {
-        
-	stage('Build image'){
-            steps{
-                sh 'docker build -t flask-app .'
+        stage('Checkout Code') {
+            steps {
+                checkout scm
             }
         }
-        stage('Deploy with docker compose'){
-            steps{
-                // existing container if they are running
-                sh 'docker-compose down || true'
-                // start app, rebuilding flask image
-                sh 'docker-compose up -d --build'
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t flask-app:latest .'
+            }
+        }
+
+        stage('Deploy with Docker Compose') {
+            steps {
+                sh 'docker compose down || true'
+                sh 'docker compose up -d --build'
             }
         }
     }
